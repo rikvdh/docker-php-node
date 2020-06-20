@@ -1,10 +1,12 @@
-# Docker image for Continuous Integration
+# Docker image for PHP and NodeJS
+For example to use in CI
 
 ## Available tags
-- [`4.0` (_Dockerfile_)](https://github.com/vyuldashev/docker-ci-php-node/blob/master/Dockerfile)
-- [`3.0` (_Dockerfile_)](https://github.com/vyuldashev/docker-ci-php-node/blob/master/3.0/Dockerfile)
-- [`2.0` (_Dockerfile_)](https://github.com/vyuldashev/docker-ci-php-node/blob/master/2.0/Dockerfile)
-- [`1.0` (_1.0/Dockerfile_)](https://github.com/vyuldashev/docker-ci-php-node/blob/master/1.0/Dockerfile)
+Tags are constructed in a scheme of: `<php-major.minor>-<node-major.minor>`.
+
+For example `7.4-14.4` for PHP 7.4.x and NodeJS 14.4.x.
+
+If you need specific combinations of PHP/NodeJS, open an [issue](https://github.com/rikvdh/docker-ci-php-node/issues)
 
 ## System information
   * Ubuntu 18.04
@@ -15,7 +17,7 @@
   * rsync
   * curl
   * wget
-  * PHP 7.4
+  * PHP
     * mysql
     * pgsql
     * memcached
@@ -31,5 +33,5 @@
     * imap
   * Composer
   * PHPUnit
-  * Node.js 13
-  * npm 6
+  * Node.js
+  * NPM
