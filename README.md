@@ -4,7 +4,7 @@ For example to use in CI
 ## Available tags
 Tags are constructed in a scheme of: `<php-major.minor>-<node-major.minor>`.
 
-For example `7.4-14.4` for PHP 7.4.x and NodeJS 14.4.x.
+For example `7.4-14.10` for PHP 7.4.x and NodeJS 14.10.x.
 
 If you need specific combinations of PHP/NodeJS, open an [issue](https://github.com/rikvdh/docker-ci-php-node/issues)
 
