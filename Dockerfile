@@ -32,24 +32,23 @@ RUN apt-get install -y \
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # PHP
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php7.4
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php8.0
 RUN apt-get install -y \
-    php7.4-curl \
-    php7.4-gd \
-    php7.4-dev \
-    php7.4-xml \
-    php7.4-bcmath \
-    php7.4-mysql \
-    php7.4-pgsql \
-    php7.4-mbstring \
-    php7.4-zip \
-    php7.4-bz2 \
-    php7.4-sqlite \
-    php7.4-soap \
-    php7.4-json \
-    php7.4-intl \
-    php7.4-imap \
-    php7.4-imagick \
+    php8.0-curl \
+    php8.0-gd \
+    php8.0-dev \
+    php8.0-xml \
+    php8.0-bcmath \
+    php8.0-mysql \
+    php8.0-pgsql \
+    php8.0-mbstring \
+    php8.0-zip \
+    php8.0-bz2 \
+    php8.0-sqlite \
+    php8.0-soap \
+    php8.0-intl \
+    php8.0-imap \
+    php8.0-imagick \
     php-memcached
 RUN command -v php
 
@@ -61,7 +60,7 @@ RUN mv composer.phar /usr/local/bin/composer && \
 RUN command -v composer
 
 # Node.js
-RUN curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install nodejs -y
 RUN npm install npm -g
