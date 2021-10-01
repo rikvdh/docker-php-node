@@ -31,5 +31,5 @@
     * imap
   * Composer
   * PHPUnit
-  * Node.js 13
+  * Node.js 14
   * npm 6
