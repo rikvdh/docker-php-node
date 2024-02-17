@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 
 ENV TZ=UTC
+ENV PHP_VERSION=${PHP_VERSION}
+ENV NODE_VERSION=${NODE_VERSION}
 
 RUN export LC_ALL=C.UTF-8
 RUN DEBIAN_FRONTEND=noninteractive
@@ -32,8 +34,8 @@ RUN apt-get install -y \
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # PHP
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php${PHP_VERSION}
-RUN apt-get install -y \
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
+RUN apt-get install -y php${PHP_VERSION} \
     php${PHP_VERSION}-curl \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-dev \
