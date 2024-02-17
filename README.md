@@ -1,7 +1,7 @@
 # Docker image for PHP and NodeJS
 
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Frikvdh%2Fdocker-php-node%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/rikvdh/docker-php-node/goto?ref=master)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Frikvdh%2Fdocker-php-node%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/rikvdh/docker-php-node/goto?ref=master)
+![Docker Pulls](https://img.shields.io/docker/pulls/rikvdh/php-node)
 
 For example to use in CI environments or for local development where you need both PHP and NodeJS.
 
