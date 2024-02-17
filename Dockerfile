@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:12
 
 ENV TZ=UTC
 ARG PHP_VERSION
@@ -11,17 +11,15 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update
 RUN apt-get install -y \
+    lsb-release \
+    ca-certificates \
+    apt-transport-https \
+    gnupg2 \
     sudo \
-    autoconf \
-    autogen \
-    language-pack-en-base \
     wget \
     zip \
     unzip \
     curl \
-    rsync \
-    ssh \
-    openssh-client \
     git \
     build-essential \
     apt-utils \
@@ -34,11 +32,16 @@ RUN apt-get install -y \
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # PHP
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update
+RUN LC_ALL=en_US.UTF-8 echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
+RUN LC_ALL=en_US.UTF-8 wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
+RUN LC_ALL=en_US.UTF-8 apt-get update
+RUN apt-mark hold php7.4-common
 RUN apt-get install -y php${PHP_VERSION} \
+    php${PHP_VERSION}-common \
     php${PHP_VERSION}-curl \
     php${PHP_VERSION}-gd \
     php${PHP_VERSION}-dev \
+    php${PHP_VERSION}-dom \
     php${PHP_VERSION}-xml \
     php${PHP_VERSION}-bcmath \
     php${PHP_VERSION}-mysql \
@@ -51,7 +54,8 @@ RUN apt-get install -y php${PHP_VERSION} \
     php${PHP_VERSION}-intl \
     php${PHP_VERSION}-imap \
     php${PHP_VERSION}-imagick \
-    php${PHP_VERSION}-memcached
+    php${PHP_VERSION}-memcached \
+    php${PHP_VERSION}-redis
 RUN command -v php
 
 # Composer
@@ -68,6 +72,9 @@ RUN apt-get install nodejs -y
 RUN npm install npm -g
 RUN command -v node
 RUN command -v npm
+
+# cleanup
+RUN rm -rf /var/lib/apt/lists/*
 
 # Other
 RUN mkdir ~/.ssh
