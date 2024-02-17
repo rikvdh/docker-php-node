@@ -85,5 +85,3 @@ RUN php -v
 RUN composer --version
 RUN node -v
 RUN npm -v
-
-USER 1000
