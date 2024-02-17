@@ -11,10 +11,12 @@ jobs:
   push_to_registry:
     strategy:
       matrix:
-        phpver: [8.2]
-        nodever: [18]
-        #phpver: [8.1, 8.2, 8.3]
-        #nodever: [18, 20]
+        phpver: [8.1, 8.2, 8.3]
+        nodever: [18, 20]
+        include:
+          - phpver: 8.3
+            nodever: 20
+            tag: latest
 
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
@@ -34,7 +36,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: rikvdh/php-node:${{ matrix.phpver }}-${{ matrix.nodever }}
+          tags: rikvdh/php-node:${{ matrix.tag == 'latest' && 'latest' || format('{0}-{1}.x', matrix.phpver, matrix.nodever) }}
           build-args: |
             PHP_VERSION=${{ matrix.phpver }}
             NODE_VERSION=${{ matrix.nodever }}
