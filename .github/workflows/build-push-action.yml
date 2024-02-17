@@ -35,4 +35,4 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: rikvdh/php-node:${{ matrix.phpver }}-${{ matrix.nodever }}
-          build-args: PHP_VERSION=${{ matrix.phpver }}
+          build-args: PHP_VERSION=${{ matrix.phpver }},NODE_VERSION=${{ matrix.nodever }}
