@@ -32,24 +32,24 @@ RUN apt-get install -y \
 RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
 
 # PHP
-RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php8.0
+RUN LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php && apt-get update && apt-get install -y php${PHP_VERSION}
 RUN apt-get install -y \
-    php8.0-curl \
-    php8.0-gd \
-    php8.0-dev \
-    php8.0-xml \
-    php8.0-bcmath \
-    php8.0-mysql \
-    php8.0-pgsql \
-    php8.0-mbstring \
-    php8.0-zip \
-    php8.0-bz2 \
-    php8.0-sqlite \
-    php8.0-soap \
-    php8.0-intl \
-    php8.0-imap \
-    php8.0-imagick \
-    php-memcached
+    php${PHP_VERSION}-curl \
+    php${PHP_VERSION}-gd \
+    php${PHP_VERSION}-dev \
+    php${PHP_VERSION}-xml \
+    php${PHP_VERSION}-bcmath \
+    php${PHP_VERSION}-mysql \
+    php${PHP_VERSION}-pgsql \
+    php${PHP_VERSION}-mbstring \
+    php${PHP_VERSION}-zip \
+    php${PHP_VERSION}-bz2 \
+    php${PHP_VERSION}-sqlite \
+    php${PHP_VERSION}-soap \
+    php${PHP_VERSION}-intl \
+    php${PHP_VERSION}-imap \
+    php${PHP_VERSION}-imagick \
+    php${PHP_VERSION}-memcached
 RUN command -v php
 
 # Composer
@@ -60,7 +60,7 @@ RUN mv composer.phar /usr/local/bin/composer && \
 RUN command -v composer
 
 # Node.js
-RUN curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
+RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x -o nodesource_setup.sh
 RUN bash nodesource_setup.sh
 RUN apt-get install nodejs -y
 RUN npm install npm -g
