@@ -1,15 +1,19 @@
 # Docker image for PHP and NodeJS
-For example to use in CI
+
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Frikvdh%2Fdocker-php-node%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/rikvdh/docker-php-node/goto?ref=master)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Frikvdh%2Fdocker-php-node%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/rikvdh/docker-php-node/goto?ref=master)
+
+For example to use in CI environments or for local development where you need both PHP and NodeJS.
 
 ## Available tags
-Tags are constructed in a scheme of: `<php-major.minor>-<node-major.minor>`.
+Tags are constructed in a scheme of: `<php-major.minor>-<node-major>.x`.
 
-For example `7.4-14.10` for PHP 7.4.x and NodeJS 14.10.x.
+For example `8.3-20.x` for PHP 7.3 and NodeJS 20.x.
 
-If you need specific combinations of PHP/NodeJS, open an [issue](https://github.com/rikvdh/docker-ci-php-node/issues)
+If you need specific combinations of PHP/NodeJS, open an [issue](https://github.com/rikvdh/docker-ci-php-node/issues) or PR to add to the matrix
 
 ## System information
-  * Ubuntu 18.04
+  * Debian 12
 
 ## Installed packages
   * ssh
@@ -29,9 +33,10 @@ If you need specific combinations of PHP/NodeJS, open an [issue](https://github.
     * gd
     * xml
     * bcmath
+    * soap
     * intl
     * imap
+    * redis
   * Composer
-  * PHPUnit
   * Node.js
   * NPM
