@@ -77,7 +77,7 @@ RUN command -v npm
 RUN rm -rf /var/lib/apt/lists/*
 
 # Other
-RUN mkdir ~/.ssh
+RUN mkdir -p ~/.ssh
 RUN touch ~/.ssh_config
 
 # Display versions installed
@@ -85,3 +85,5 @@ RUN php -v
 RUN composer --version
 RUN node -v
 RUN npm -v
+
+USER 1000
