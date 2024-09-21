@@ -11,7 +11,7 @@ jobs:
   push_to_registry:
     strategy:
       matrix:
-        phpver: [8.1, 8.2, 8.3]
+        phpver: [8.2, 8.3]
         nodever: [18, 20]
         tag: [custom]
         include:
