@@ -44,6 +44,7 @@ RUN apt-get install -y php${PHP_VERSION} \
     php${PHP_VERSION}-dom \
     php${PHP_VERSION}-xml \
     php${PHP_VERSION}-bcmath \
+    php${PHP_VERSION}-apcu \
     php${PHP_VERSION}-mysql \
     php${PHP_VERSION}-pgsql \
     php${PHP_VERSION}-mbstring \
